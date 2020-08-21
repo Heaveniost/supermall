@@ -37,7 +37,5 @@
 </script>
 
 <style scoped>
-  span {
-    display: block;
-  }
+  
 </style>
