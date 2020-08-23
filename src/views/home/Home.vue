@@ -6,17 +6,10 @@
     <home-swiper :banners="banners"></home-swiper>
     <recom-view :recommends="recommends"></recom-view>
     <feature-view></feature-view>
-    <tab-control :titles="['流行','新款','精选']"></tab-control>
+    <tab-control class="tab-control"  
+                :titles="['流行','新款','精选']" 
+                @tabClick="tabClick"></tab-control>
     <goods-list :goods="showGoods"></goods-list>
-    <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
   </div>
 </template>
 
@@ -69,6 +62,20 @@ export default {
       this.getHomeGoods('sell')
   },
   methods: {
+      //事件监听相关方法
+      tabClick(index) {
+          switch (index) {
+            case 0:
+                  this.currentType = 'pop'
+                  break
+            case 1:
+                this.currentType = 'new'
+                break
+            case 2:
+                this.currentType = 'sell'
+                break
+          }
+      },
       //网络请求相关方法
       getHomeMultidata() {
           getHomeMultidata().then((res) => {
@@ -85,7 +92,6 @@ export default {
               this.goods[type].list.push(...res.data.list)
               this.goods[type].page += 1
 
-            //   this.$refs.scroll.finishPullup()
           })
       }
   }
@@ -107,5 +113,11 @@ export default {
   top: 0;
   right: 0;
   z-index: 9;
+}
+
+.tab-control {
+    position: sticky;
+    top: 44px;
+    z-index: 9;
 }
 </style>
