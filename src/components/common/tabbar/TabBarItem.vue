@@ -30,7 +30,7 @@
     },
     methods: {
       itemClick(){
-        this.$router.replace(this.path).catch( () => {})
+        this.$router.replace(this.path).catch(() => {}) //防止重复点击报错
       }
     }
   }
