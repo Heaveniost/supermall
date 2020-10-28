@@ -1,7 +1,6 @@
 <template>
   <!-- <div v-if="Object.keys(detailInfo).length" class="goods-info"> -->
   <div class="goods-info">
-    <div>hello----------------------------------</div>
     <div class="info-desc clear-fix">
       <div class="start">
       </div>
